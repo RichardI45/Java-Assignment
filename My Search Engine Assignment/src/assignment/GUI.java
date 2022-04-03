@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 public class GUI {
 
 	public static void main(String[] args) {
-		
+		/*
 		JPanel panel = new JPanel();
 		JFrame frame = new JFrame();
 		frame.setSize(500,500);
@@ -31,6 +31,9 @@ public class GUI {
 		panel.add(button);
 		
 		frame.setVisible(true);
+		*/
+		
+		Window mywindow = new Window();
 		
 	}
 
