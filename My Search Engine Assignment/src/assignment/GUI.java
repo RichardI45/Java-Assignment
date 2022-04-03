@@ -1,5 +1,6 @@
 package assignment;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,6 +26,9 @@ public class GUI {
 		userText.setBounds(100,20,165,25);
 		panel.add(userText);
 		
+		JButton button = new JButton("Search");
+		button.setBounds(10,110,300,25);
+		panel.add(button);
 		
 		frame.setVisible(true);
 		
