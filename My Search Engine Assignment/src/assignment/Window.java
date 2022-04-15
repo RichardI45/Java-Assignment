@@ -25,7 +25,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 import assignment.InvertedIndex;
 import assignment.Search;
 
@@ -37,7 +36,13 @@ import assignment.Search;
 public class Window extends JFrame{
 	
 	
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6639714292448749672L;
 	private InvertedIndex invertedIndex;
+	JPanel panel = new JPanel();
 	public Window(InvertedIndex invertedIndex) {
 		this.invertedIndex = invertedIndex;
 		Window();
@@ -51,7 +56,7 @@ public class Window extends JFrame{
 	private void Window(){
 		
 	
-	
+	/*setting up the GUI */
 	this.setTitle("My Search Engine");
 	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	this.setSize(500,700);
@@ -74,7 +79,7 @@ public class Window extends JFrame{
 	this.add(searchBox);
 	
 	JButton searchButton = new JButton("Search");
-	searchButton.setBounds(100,140,150,25);
+	searchButton.setBounds(70,140,110,25);
 	this.add(searchButton);
 	
 	JButton addFileButton = new JButton("Add File");
@@ -142,27 +147,27 @@ public class Window extends JFrame{
 					});
 	
 
-					//Handles the foundBox result formatting. 
+					//Handles the foundBox results. 
 					
 					String previous = "";
 					for(int i = 0; i < list.size(); i++){
-						Search Search = list.get(i);
+						Search search = list.get(i);
 						if(i == 0){
-							previous = Search.getFilename();
-							ResultBox.setText(ResultBox.getText()+word+" found in "+previous+"\n"+Search.toString()+"\n");
+							previous = search.getFilename();
+							ResultBox.setText(ResultBox.getText()+word+" found in "+previous+"\n"+search.toString()+"\n");
 						}else{
-							String currentFileName = Search.getFilename();
+							String currentFileName = search.getFilename();
 							if(previous.equals(currentFileName)){
-								ResultBox.setText(ResultBox.getText()+Search.toString()+"\n");
+								ResultBox.setText(ResultBox.getText()+search.toString()+"\n");
 							}else{
 								previous = currentFileName;
-								ResultBox.setText(ResultBox.getText()+word+" found in "+previous+"\n"+Search.toString()+"\n");
+								ResultBox.setText(ResultBox.getText()+word+" found in "+previous+"\n"+search.toString()+"\n");
 							}
 						}
 					}
 				}else{
 					//Clear the text box.
-					ResultBox.setText(ResultBox.getText()+"None of the documents contain "+word+".\n");
+					ResultBox.setText(ResultBox.getText()+"None of the Files contain the text "+word+".\n");
 				}
 			}
 		}
@@ -231,6 +236,8 @@ public class Window extends JFrame{
 			
 		}
 	});
+	
+	
 	}
 }
 				

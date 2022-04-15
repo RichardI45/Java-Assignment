@@ -30,7 +30,7 @@ public class Search  {
 		return search.filename.equals(filename) && search.lineNumber == lineNumber && search.lineOfText.equals(lineOfText);
 	}
 	
-	//Overrided since I override the equals method. 
+	
 	@Override public int hashCode(){
 		return Arrays.hashCode(new Object[] {
 		        filename, lineNumber, lineOfText});

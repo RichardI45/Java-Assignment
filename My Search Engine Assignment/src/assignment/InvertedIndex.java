@@ -17,7 +17,7 @@ public class InvertedIndex {
 	 * Adds a word and the location of that word in a file to the index.
 	 */
 	public void add(String word, Search search){
-		//Make sure to remove the word of periods, question marks, etc.
+		//remove the word of periods, question marks, etc.
 		word = word.replaceAll("\\W", "");
 		//If the index doesn't have the word, add it. Otherwise update the set attached to the word.
 		if(invertedIndex.containsKey(word)){
@@ -35,14 +35,14 @@ public class InvertedIndex {
 	/*
 	 * Retrieves a set of text locations that contain the given word.
 	 * If the word is not in the inverted index, returns null.
-	 * Note: These text locations are not in sorted order.
+	 * These text locations are not in sorted order.
 	 */
 	public Set<Search> get(String word){
 		return invertedIndex.get(word);
 	}
 	
 	/*
-	 * Prints out every word followed by a group of its text locations. Example: "is":    Line 1: This is not a test., Line 3: Just kidding it is not. 
+	 * Prints out every word followed by a group of its text locations.
 	 */
 	@Override public String toString(){
 		String printedString = "";
@@ -50,8 +50,8 @@ public class InvertedIndex {
 		Iterator<String> it = set.iterator();
 		while(it.hasNext()){
 			String word = it.next();
-			Set<Search> Searchs = invertedIndex.get(word);
-			Iterator<Search> it2 = Searchs.iterator();
+			Set<Search> searches = invertedIndex.get(word);
+			Iterator<Search> it2 = searches.iterator();
 			String locationText = "";
 			while(it2.hasNext()){
 				Search search = it2.next();
